@@ -19,15 +19,21 @@ for line in lines:
         x.append('no')
     else:
         print("not correct sequence")
+        quit()
         
         
-
+pos=0
 for i in range(len(x)-1):
-    
+    #keeping track on which sequence we currently are
+    pos+=1
+
     current=x[i]
     later=x[i+1]
-    print("current:",current)
-    print("next:",later)
+    #print("current:",current)
+    #print("next:",later)
+    
+    if pos==len(x)-1:
+        print("Traffic light is working fine")
     
     if current=="green" and (later=='green' or later=='yellow' or later=='no'): 
             continue
@@ -41,7 +47,7 @@ for i in range(len(x)-1):
         continue
     elif current=='arrow' and (later=='green' or later=='arrow'or later=='no') :
         continue
-
     else:
-        print("invalid")
+        print("Invalid")
         break
+

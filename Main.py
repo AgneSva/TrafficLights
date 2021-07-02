@@ -36,7 +36,7 @@ for i in range(len(x)-1):
         print("Traffic light is working fine")
     
     #after green possible sequences
-    if current=="green" and (later=='green' or later=='yellow' or later=='no'or later=='arrow'): 
+    if current=="green" and (later=='green' or later=='yellow' or later=='no'): 
             continue
 
     #after red possible sequences

@@ -21,7 +21,6 @@ for line in lines:
         print("not correct sequence")
         quit()
         
-        
 pos=0
 for i in range(len(x)-1):
     #keeping track on which sequence we currently are
@@ -29,25 +28,35 @@ for i in range(len(x)-1):
 
     current=x[i]
     later=x[i+1]
+    prev=x[i-1]
     #print("current:",current)
     #print("next:",later)
     
     if pos==len(x)-1:
         print("Traffic light is working fine")
     
+    #after green possible sequences
     if current=="green" and (later=='green' or later=='yellow' or later=='no'): 
             continue
 
-    elif current=="red" and (later=='yellow'or  later=='red' or later=='no'):
+    #after red possible sequences
+    elif current=="red" and (later=='yellow'or  later=='red' ):
             continue
 
-    elif current=="yellow" and (later=='green'or  later=='arrow'or later=='no' or later=='yellow' or later=='red'):
+    #after yellow possible sequences
+    elif current=="yellow" and (later=='green'or  later=='arrow' or later=='yellow' or later=='red'):
             continue
-    elif current=='no':
+
+    #around no lights sequence possible sequences- green or arrow
+    elif current=='no'and (later=='green' or later=='arrow'or later=='no' or prev=='green' or prev=='arrow'or prev=='no'):
         continue
+
+    #after arrow possible sequences
     elif current=='arrow' and (later=='green' or later=='arrow'or later=='no') :
         continue
+
     else:
         print("Invalid")
         break
+
 
